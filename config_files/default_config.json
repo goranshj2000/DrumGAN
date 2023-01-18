@@ -1,10 +1,10 @@
 {
     "name": "default dummy configuration",
     "comments": "test",
-    "output_path": "path/to/output",
+    "output_path": "/output_folder",
     "loader_config": {
         "dbname": "default",
-        "data_path": "/paath/to/dataa",
+        "data_path": "/content/drive/MyDrive/beta_features/drum_loop_generation/trimmed/processed",
         "criteria": {},
         "shuffle": true
     },
