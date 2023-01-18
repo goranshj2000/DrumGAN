@@ -3,7 +3,7 @@ import numpy as np
 import time
 import json
 from math import inf
-from librosa.output import write_wav
+#from librosa.output import write_wav
 import torch
 from torch.nn.functional import interpolate
 from numpy import random
@@ -449,6 +449,7 @@ def validate_checkpoint_data(checkp_data, checkp_dir, scale, iter, name):
         
 def saveAudioBatch(data, path, basename, sr=16000, overwrite=False):
     from librosa.util.utils import ParameterError
+    import soundfile as sf
     try:
         for i, audio in enumerate(data):
 
@@ -458,7 +459,8 @@ def saveAudioBatch(data, path, basename, sr=16000, overwrite=False):
             out_path = os.path.join(path, f'{basename}_{i}.wav')
             
             if not os.path.exists(out_path) or overwrite:
-                write_wav(out_path, audio.astype(float), sr)
+                #write_wav(out_path, audio.astype(float), sr)
+                sf.write(out_path, audio.astype(float),sr)
             else:
                 print(f"saveAudioBatch: File {out_path} exists. Skipping...")
                 continue

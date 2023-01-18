@@ -1,10 +1,10 @@
 {
     "name": "default dummy configuration",
     "comments": "test",
-    "output_path": "/output_folder",
+    "output_path": "C:/Users/goran/Projects/DrumGAN/output_folder",
     "loader_config": {
         "dbname": "default",
-        "data_path": "/content/drive/MyDrive/beta_features/drum_loop_generation/trimmed/processed",
+        "data_path": "C:/Users/goran/Projects/DrumGAN/dataset",
         "criteria": {},
         "shuffle": true
     },

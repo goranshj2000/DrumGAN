@@ -1,7 +1,7 @@
 from functools import partial
 import torch
 import multiprocessing
-import resource
+# import resource
 
 from .audio_transforms import complex_to_lin, lin_to_complex, \
     RemoveDC, Compose, mag_to_complex, AddDC, safe_log_spec, \
@@ -50,8 +50,8 @@ class DataProcessor(object):
     def __call__(self, x):
         if type(x) is list:
             processor = self.get_preprocessor()
-            rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
-            resource.setrlimit(resource.RLIMIT_NOFILE, (32768, rlimit[1]))
+            # rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
+            # resource.setrlimit(resource.RLIMIT_NOFILE, (32768, rlimit[1]))
             p = multiprocessing.Pool(multiprocessing.cpu_count())
             out = list(p.map(processor, tqdm(x, desc='preprocessing-loop')))
             p.close()

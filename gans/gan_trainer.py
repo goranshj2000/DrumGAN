@@ -13,7 +13,7 @@ from tqdm import tqdm, trange
 
 from time import time
 import ipdb
-from visualization import LossVisualizer
+# from visualization import LossVisualizer
 
 class GANTrainer():
     r"""
@@ -121,11 +121,11 @@ class GANTrainer():
         self.loss_plot_i = loss_plot_i
         self.eval_i = eval_i
 
-        self.loss_visualizer = \
-            LossVisualizer(output_path=self.output_dir,
-                           env=self.modelLabel,
-                           save_figs=True,
-                           no_visdom=vis_manager.no_visdom)
+        # self.loss_visualizer = \
+        #     LossVisualizer(output_path=self.output_dir,
+        #                    env=self.modelLabel,
+        #                    save_figs=True,
+        #                    no_visdom=vis_manager.no_visdom)
 
         # init ref eval vectors
         self.init_reference_eval_vectors()
@@ -408,7 +408,7 @@ class GANTrainer():
                     # Reinitialize the losses
                     self.updateLossProfile(self.iter)
                     self.resetRunningLosses()
-                    self.publish_loss()
+                    # self.publish_loss()
 
                 # run evaluation/tests
                 if self.iter % self.eval_i == 0 and self.iter != 0:
@@ -429,7 +429,8 @@ class GANTrainer():
         return True
 
     def publish_loss(self):
-        self.loss_visualizer.publish(self.lossProfile[-1])
+        # self.loss_visualizer.publish(self.lossProfile[-1])
+        return 
 
     def init_reference_eval_vectors(self, batch_size=50):
 

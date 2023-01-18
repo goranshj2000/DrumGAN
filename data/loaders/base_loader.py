@@ -134,12 +134,12 @@ class DataLoader(ABC, data.Dataset):
         print("Preprocessing data...")
         import multiprocessing
         import signal
-        import resource
+        # import resource
 
-        rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
-        resource.setrlimit(resource.RLIMIT_NOFILE, rlimit)
+        # rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
+        # resource.setrlimit(resource.RLIMIT_NOFILE, rlimit)
 
-        signal.signal(signal.SIGALRM, timeout)
+        #signal.signal(signal.SIGALRM, timeout)
 
         p = multiprocessing.Pool(multiprocessing.cpu_count())
         # signal.alarm(20)

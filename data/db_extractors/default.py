@@ -19,7 +19,7 @@ import ipdb
 import subprocess
 import multiprocessing
 import signal
-import resource
+#import resource
 
 __VERSION__ = "0.0.0"
 MAX_N_FILES_IN_FOLDER = 10000

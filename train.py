@@ -20,7 +20,7 @@ if not sys.warnoptions:
     os.environ["PYTHONWARNINGS"] = "ignore" # Also affect subprocesses
 
 from datetime import datetime
-from visualization import getVisualizer
+#from visualization import getVisualizer
 
 
 if __name__ == "__main__":
@@ -68,11 +68,11 @@ if __name__ == "__main__":
     parser.add_argument('--finetune', action='store_true', dest='finetune',
                         help='Deactivate visdom visualization')
 
-    import resource
+    # import resource
 
-    rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
+    # rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
 
-    resource.setrlimit(resource.RLIMIT_NOFILE, rlimit)
+    # resource.setrlimit(resource.RLIMIT_NOFILE, rlimit)
 
     #torch.autograd.set_detect_anomaly(True)
     cudnn.benchmark = True
@@ -149,12 +149,12 @@ if __name__ == "__main__":
         config["name"] = exp_name
 
     # visualization
-    vis_manager = \
-    getVisualizer(transform_config['transform'])(
-        output_path=checkpoint_dir,
-        env=exp_name,
-        sampleRate=transform_config.get('sample_rate', 16000),
-        no_visdom=args.no_visdom)
+    # vis_manager = \
+    # getVisualizer(transform_config['transform'])(
+    #     output_path=checkpoint_dir,
+    #     env=exp_name,
+    #     sampleRate=transform_config.get('sample_rate', 16000),
+    #     no_visdom=args.no_visdom)
 
     GANTrainer = trainerModule(
         model_name=exp_name,
@@ -165,8 +165,8 @@ if __name__ == "__main__":
         checkpoint_dir=checkpoint_dir,
         save_iter=args.save_i,
         n_samples=args.n_samples,
-        config=model_config,
-        vis_manager=vis_manager)
+        config=model_config)#,
+        #vis_manager=vis_manager)
 
     # If a checkpoint is found, load it
     if not args.restart and checkpoint_state is not None:
