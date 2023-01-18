@@ -17,8 +17,8 @@ AVAILABLE_DATASETS = {
 }
 
 def get_data_loader(name):
-    if name not in AVAILABLE_DATASETS:
-    	raise AttributeError(f"Invalid module name. \
-                               Available: {AVAILABLE_DATASETS.keys()}")
-
-    return AVAILABLE_DATASETS[name]
+    # if name not in AVAILABLE_DATASETS:
+    # 	raise AttributeError(f"Invalid module name. \
+    #                            Available: {AVAILABLE_DATASETS.keys()}")
+	return SimpleLoader
+    # return AVAILABLE_DATASETS[name]
