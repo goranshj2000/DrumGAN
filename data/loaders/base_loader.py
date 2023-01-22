@@ -139,7 +139,7 @@ class DataLoader(ABC, data.Dataset):
         # rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
         # resource.setrlimit(resource.RLIMIT_NOFILE, rlimit)
 
-        #signal.signal(signal.SIGALRM, timeout)
+        signal.signal(signal.SIGALRM, timeout)
 
         p = multiprocessing.Pool(multiprocessing.cpu_count())
         # signal.alarm(20)
@@ -152,7 +152,7 @@ class DataLoader(ABC, data.Dataset):
             print("Running non-parallel processing")
             self.data = list(map(self.preprocessing,
                             tqdm(self.data, desc='preprocessing-loop')))
-        # signal.alarm(0)
+        signal.alarm(0)
         print("Data preprocessing done")
 
     @abstractmethod

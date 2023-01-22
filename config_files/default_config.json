@@ -1,7 +1,7 @@
 {
     "name": "default dummy configuration",
     "comments": "test",
-    "output_path": "/content/output_path",
+    "output_path": "output_folder",
     "loader_config": {
         "dbname": "default",
         "data_path": "/content/drive/MyDrive/beta_features/drum_loop_generation/trimmed/processed",
